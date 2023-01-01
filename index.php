@@ -1,7 +1,5 @@
 <?php
-
-    // echo "Hello";
-    
+    require_once("./stripe/init.php")
 ?>
 
 <!DOCTYPE html>
@@ -15,32 +13,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
-    <script defer src="https://js.stripe.com/v3/"></script>
-    <!-- <script defer src="app.js"></script> -->
-    <script defer src="checkout.js"></script>
-
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="client.js" defer></script>
     <link rel="shortcut icon" href="../../main/img/LRDE-logo.png" type="image/x-icon"> <!-- To change href when merging -->
-
     <title>La Ronde de l'Espoir</title>
 </head>
 <body>
 
-    <form id="payment-form">
+    <nav>
+        <div id="main-site-return" onclick="location.href='https://ronde-de-l-espoir.fr'">
+            <p>Retour vers le site principal</p>
+            <iconify-icon icon="fluent:arrow-right-48-filled" style="color: white;" rotate="180deg"></iconify-icon>        
+        </div>
+        <div id="title"><p>Ronde de l'Espoir</p></div>
+    </nav>
 
-        <div id="link-authentication-element"></div>
-        <div id="payment-element"></div>
-
-        <button id="submit">
-            <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Pay now</span>
-        </button>
-
-        <div id="payment-message" class="hidden"></div>
-
-
+    <form id="multi-step-form">
+        <div>
+            <div>
+                <p>Voulez-vous donner anonymement ?</p>
+                <input id="anon-no" type="radio" value="Non" name="anon-btn">
+                <label for="anon-no">Non</label>
+                <input type="radio" value="Oui" id="anon-yes" name="anon-btn">
+                <label for="anon-yes">Oui</label>
+            </div>
+            <p>Informations personnelles</p>
+            
+        </div>
     </form>
+    
 
     
 </body>
