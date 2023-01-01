@@ -1,5 +1,6 @@
 <?php
-    require_once("./stripe/init.php")
+    require_once("./stripe/init.php");
+    $transaction_id = $_GET["name"]
 ?>
 
 <!DOCTYPE html>
@@ -32,15 +33,60 @@
     </nav>
 
     <form id="multi-step-form">
-        <div>
-            <div>
+        <div id="first-page">
+            <div id="chose-anonymous" class="section">
                 <p>Voulez-vous donner anonymement ?</p>
-                <input id="anon-no" type="radio" value="Non" name="anon-btn">
-                <label for="anon-no">Non</label>
-                <input type="radio" value="Oui" id="anon-yes" name="anon-btn">
-                <label for="anon-yes">Oui</label>
+                <div>
+                    <input id="anon-no" type="radio" value="Non" name="anon-btn" checked>
+                    <label for="anon-no" class="btn-label">Non</label>
+                    <input type="radio" value="Oui" id="anon-yes" name="anon-btn">
+                    <label for="anon-yes" class="btn-label">Oui</label>
+                </div>
             </div>
-            <p>Informations personnelles</p>
+            <div id="personal-info" class="section">
+                <p>Informations personnelles</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select id="civilite">
+                                    <option value="M">M</option>
+                                    <option value="Mme">Mme</option>
+                                    <option value="non-binary">Je préfère ne pas rensigner</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="email" placeholder="Votre adresse mail" name="email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="NOM" name="surname">
+                            </td>
+                            <td>
+                                <input type="number" placeholder="Numéro de téléphone" name="phone" pattern="/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/gm">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Prénom" name="first-name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" placeholder="Code postal" name="postal-code">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Ville de résidence" name="city">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+
+            </div>
             
         </div>
     </form>

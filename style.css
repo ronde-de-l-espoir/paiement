@@ -5,6 +5,11 @@ html, body {
     font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    background-image: url(./img/bg.png);
+    background-size: cover;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -33,19 +38,44 @@ nav {
     vertical-align: middle;
 }
 
+#title p {
+    position: absolute;
+    left: 50%;
+}
+
+#multi-step-form {
+    background-color: white;
+    border: black 3px;
+    border-radius: 5mm;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 15mm;
+    margin-bottom: 15mm;
+    padding: 1cm;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 input[type='radio'] {
     display: none;
 }
 
+p {
+    text-align: center;
+}
 
 
-label[for|="anon"] {
+.btn-label {
     padding: 10px 20px;
-    background-color: orange;
-
+    background-color: #3e8dbe;
     border-radius: 10px;
-    margin:5px;
+    margin: 10px;
     display: inline-block;
 }
 
