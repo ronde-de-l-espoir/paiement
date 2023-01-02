@@ -1,6 +1,13 @@
 <?php
     require_once("./stripe/init.php");
-    $transaction_id = $_GET["name"]
+    if (is_null($_GET["token"])){
+        $token = openssl_random_pseudo_bytes(4);
+        $token = bin2hex($token);
+        header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . "?token=" . $token);
+        exit();
+    } else {
+        $token = $_GET["token"];
+    }
 ?>
 
 <!DOCTYPE html>
